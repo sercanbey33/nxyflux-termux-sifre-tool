@@ -84,7 +84,7 @@ nxyflux-termux-sifre-tool/
 ## 🛠️ Gereksinimler
 
 - Python 3.6+
-- `termux-api` (panoya kopyalama için isteğe bağlı)
+- `termux-api`
 
 ---
 
