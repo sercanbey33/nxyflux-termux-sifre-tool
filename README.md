@@ -60,19 +60,17 @@ git clone https://github.com/sercanbey33/nxyflux-termux-sifre-tool.git
 cd nxyflux-termux-sifre-tool
 ```
 
-### 3. Çalıştırın:
+### 3. Kurulum Yap:
 ```bash
-python nxyfluxsifre.py
+bash install.sh
 ```
 
 ---
 
-### 🎵 Kolay erişim için alias (isteğe bağlı):
+### 4. Çalıştır:
 ```bash
-echo 'alias sifre="python ~/nxyflux-termux-sifre-tool/nxyfluxsifre.py"' >> ~/.bashrc
-source ~/.bashrc
+python nxyfluxsifre.py
 ```
-Sonra sadece `sifre` yazarak çalıştırabilirsiniz!
 
 ---
 
