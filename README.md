@@ -71,7 +71,7 @@ Sonra sadece `sifre` yazarak çalıştırabilirsiniz!
 - **Şifreler kaydedilmez** - Sadece metadata (uzunluk, güç, tarih)
 - **Offline çalışır** - İnternet bağlantısı gerekmez
 
-## 📁 Dosya Yapısı
+## 📁 Dosyalar
 
 ```
 nxyflux-termux-sifre-tool/
