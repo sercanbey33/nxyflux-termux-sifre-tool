@@ -77,6 +77,7 @@ Sonra sadece `sifre` yazarak çalıştırabilirsiniz!
 nxyflux-termux-sifre-tool/
 ├── nxyfluxsifre.py
 ├── install.sh
+├── nxyfluxsifre.jpg
 ├── LICENSE
 ├── README.md
 └── .gitignore
