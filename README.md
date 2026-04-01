@@ -1,4 +1,4 @@
-![NxYFLuX Şifre](nxyfluxsifre.jpg)
+![NxYFLuX Şifre](./nxyfluxsifre.jpg)
 
 Termux için gelişmiş, güvenli ve kullanıcı dostu bir şifre oluşturma aracı.
 
