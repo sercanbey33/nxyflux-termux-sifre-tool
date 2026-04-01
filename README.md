@@ -1,3 +1,4 @@
+![NxYFLuX Şifre](nxyfluxsifre.jpg)
 # 🔐 NxYFLuX Termux Gelişmiş Şifre Oluşturucu
 
 Termux için gelişmiş, güvenli ve kullanıcı dostu bir şifre oluşturma aracı.
