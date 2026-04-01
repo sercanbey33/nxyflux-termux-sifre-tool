@@ -11,9 +11,9 @@ nxyflux-termux-sifre-tool/
 ├── nxyfluxsifre.py
 ├── install.sh
 ├── nxyfluxsifre.jpg
-├── LICENSE
+├── .gitignore
 ├── README.md
-└── .gitignore
+└── LICENSE
 ```
 
 ---
@@ -44,6 +44,8 @@ nxyflux-termux-sifre-tool/
 ### 1. Termux'a Python kurun:
 ```bash
 pkg update
+```
+```bash
 pkg install python
 ```
 
@@ -51,12 +53,12 @@ pkg install python
 
 ### 2. Repoyu klonlayın:
 ```bash
-cd ~
 git clone https://github.com/sercanbey33/nxyflux-termux-sifre-tool.git
-cd nxyflux-termux-sifre-tool
 ```
 
----
+```bash
+cd nxyflux-termux-sifre-tool
+```
 
 ### 3. Çalıştırın:
 ```bash
