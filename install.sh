@@ -4,29 +4,29 @@
 echo "🔐 NxYFLuX Gelişmiş Şifre Oluşturucu Kurulumu"
 echo "============================================"
 
-# Renkler
+
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# Python kontrol
+
 if ! command -v python3 &> /dev/null; then
     echo -e "${YELLOW}📦 Python3 bulunamadı. Kuruluyor...${NC}"
     pkg update -y
     pkg install python -y
 fi
 
-# Gerekli dizinler
+
 SCRIPT_DIR="$HOME/nxyflux-termux-sifre-tool"
 mkdir -p "$SCRIPT_DIR"
 
-# Dosyaları kopyala
+
 echo -e "${GREEN}📁 Dosyalar kopyalanıyor...${NC}"
 cp nxyfluxsifre.py "$SCRIPT_DIR/"
 chmod +x "$SCRIPT_DIR/nxyfluxsifre.py"
 
-# Alias ekle
+
 BASHRC="$HOME/.bashrc"
 ALIAS_CMD='alias sifre="python3 "$HOME/nxyflux-termux-sifre-tool/nxyfluxsifre.py""'
 
@@ -37,7 +37,7 @@ if ! grep -q "alias sifre=" "$BASHRC" 2>/dev/null; then
     echo "$ALIAS_CMD" >> "$BASHRC"
 fi
 
-# Termux API kontrol (isteğe bağlı)
+
 if ! command -v termux-clipboard-set &> /dev/null; then
     echo -e "${YELLOW}💡 İpucu: Panoya kopyalama için 'termux-api' yükleyin:${NC}"
     echo "   pkg install termux-api"
