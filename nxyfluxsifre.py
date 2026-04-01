@@ -79,7 +79,7 @@ class AdvancedPasswordGenerator:
         if not charset:
             raise ValueError("En az bir karakter seti seçilmelidir!")
 
-        # Güvenli rastgele seçim
+        
         password = ''.join(random.SystemRandom().choice(charset) for _ in range(length))
 
         return password
@@ -88,7 +88,7 @@ class AdvancedPasswordGenerator:
         """
         Akılda kalıcı passphrase oluştur (Diceware tarzı)
         """
-        # Basit İngilizce/Türkçe kelime listesi
+        
         words = [
             "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel",
             "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa",
@@ -110,7 +110,7 @@ class AdvancedPasswordGenerator:
         """Şifre güçlülük skoru hesapla"""
         length = len(password)
 
-        # Karakter seti büyüklüğünü belirle
+    
         charset_size = 0
         if any(c in string.ascii_lowercase for c in password):
             charset_size += 26
@@ -128,7 +128,7 @@ class AdvancedPasswordGenerator:
 
         entropy = length * (charset_size.bit_length() - 1)
 
-        # Güç değerlendirmesi
+        
         if entropy < 28:
             strength = "ÇOK ZAYIF"
             color = "\033[91m"  # Kırmızı
@@ -183,13 +183,13 @@ class AdvancedPasswordGenerator:
             "type": password_info.get("type", "password"),
             "length": len(password_info.get("password", "")),
             "strength": password_info.get("strength", {}),
-            # Şifrenin kendisini kaydetme - sadece metadata
+        
             "note": password_info.get("note", "")
         }
 
         history.append(entry)
 
-        # Son 50 kaydı tut
+        
         history = history[-50:]
 
         with open(self.history_file, 'w') as f:
@@ -223,12 +223,12 @@ class AdvancedPasswordGenerator:
     def copy_to_clipboard(self, text):
         """Termux panoya kopyala"""
         try:
-            # Termux clipboard
+            
             os.system(f'termux-clipboard-set "{text}"')
             return True
         except:
             try:
-                # Alternatif yöntem
+                
                 import subprocess
                 subprocess.run(['termux-clipboard-set'], input=text.encode())
                 return True
@@ -257,7 +257,7 @@ def print_menu():
 │  [1] 🎲 Hızlı Şifre Oluştur (Varsayılan Ayarlar)        │
 │  [2] ⚙️  Özelleştirilmiş Şifre Oluştur                  │
 │  [3] 📝 Passphrase Oluştur (Akılda Kalıcı)              │
-│  [4] 🔢 PIN Kodu Oluştur                                  │
+│  [4] 🔢 PIN Kodu Oluştur                                │
 │  [5] 📊 Şifre Güç Analizi                               │
 │  [6] #️⃣  Hash Oluştur                                   │
 │  [7] 📜 Geçmişi Göster                                  │
@@ -279,7 +279,7 @@ def main():
         choice = input("Seçiminiz: ").strip()
 
         if choice == "1":
-            # Hızlı şifre
+            
             pwd = generator.generate_password(length=16)
             entropy = generator.calculate_entropy(pwd)
 
@@ -304,7 +304,7 @@ def main():
                     print("❌ Kopyalama başarısız. Manuel olarak kopyalayın.")
 
         elif choice == "2":
-            # Özelleştirilmiş şifre
+            
             print("\n--- Özelleştirilmiş Şifre Ayarları ---")
             try:
                 length = int(input("Uzunluk [16]: ") or "16")
@@ -340,7 +340,7 @@ def main():
                 print(f"❌ Hata: {e}")
 
         elif choice == "3":
-            # Passphrase
+            
             print("\n--- Passphrase Ayarları ---")
             word_count = int(input("Kelime sayısı [4]: ") or "4")
             separator = input("Ayraç [-]: ") or "-"
@@ -361,7 +361,7 @@ def main():
             })
 
         elif choice == "4":
-            # PIN
+            
             length = int(input("PIN uzunluğu [4]: ") or "4")
             pin = ''.join(random.SystemRandom().choice(string.digits) for _ in range(length))
 
@@ -376,7 +376,7 @@ def main():
             })
 
         elif choice == "5":
-            # Analiz
+            
             pwd = getpass("Analiz edilecek şifre: ")
             if pwd:
                 entropy = generator.calculate_entropy(pwd)
@@ -386,7 +386,7 @@ def main():
                 print(f"   Entropy: {entropy['entropy']:.2f} bit")
                 print(f"   Güç: {entropy['color']}{entropy['strength']}\033[0m")
 
-                # Tahmini kırma süresi
+                
                 if entropy['entropy'] < 28:
                     print("   ⚠️  Tahmini kırma süresi: Anında")
                 elif entropy['entropy'] < 36:
@@ -399,7 +399,7 @@ def main():
                     print("   ✅ Tahmini kırma süresi: Yüzyıllar")
 
         elif choice == "6":
-            # Hash
+            
             pwd = getpass("Hash'lenecek metin: ")
             if pwd:
                 print("\n--- Hash Algoritmaları ---")
@@ -423,7 +423,7 @@ def main():
             generator.show_history()
 
         elif choice == "8":
-            # Ayarlar
+            
             print("\n--- Ayarlar ---")
             print(f"Varsayılan uzunluk: {generator.config.get('default_length', 16)}")
             print(f"Geçmiş kaydetme: {generator.config.get('save_history', True)}")
@@ -432,7 +432,7 @@ def main():
             if new_length:
                 generator.config['default_length'] = int(new_length)
 
-            save_hist = input("Geçmiş kaydetme? (E/h): ").lower()
+            save_hist = input("Geçmiş kaydetme? (E/H): ").lower()
             generator.config['save_history'] = save_hist != 'h'
 
             generator.save_config()
