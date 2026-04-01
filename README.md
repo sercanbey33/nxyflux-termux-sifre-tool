@@ -76,8 +76,6 @@ Sonra sadece `sifre` yazarak çalıştırabilirsiniz!
 
 ---
 
-## 📖 Kullanım
-
 ### Menü Seçenekleri:
 
 | Seçenek | Açıklama |
